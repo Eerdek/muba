@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Төрсөн Өдрийн Мэнд</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+
+  <div class="container">
+    <h1>Төрсөн Өдрийн Мэнд 🎉</h1>
+    <div class="emoji">🎂🎈🎁</div>
+
+    <div class="message">
+      <p>Амьдралын гайхамшигт энэ өдөрт</p>
+      <p>Чиний эрүүл мэнд, аз жаргалд зориулж</p>
+      <p>Одод шиг гялалзсан энэ мөчид</p>
+      <p>Сэтгэлээ шингээн хүргэе Төрсөн өдрийн мэнд! 😊</p>
+    </div>
+
+    <!-- Товч + тасалбар -->
+    <div class="button-wrapper">
+      <button id="wishBtn">Аз & Од 🫂</button>
+
+      <!-- Popup тасалбар -->
+      <div id="ticket" class="ticket">
+        <p>🎟️мэндчилгээ🎟️</p>
+        <p><strong>10 BEER Уух эрх kkk</strong></p>
+        <p>хүчинтэй хугацаа:2025.05.20</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Дуу -->
+  <audio id="popSound" src="muba mp3.mp4"></audio>
+
+  <!-- JS -->
+  <script>
+   const button = document.getElementById('wishBtn');
+const audio = document.getElementById('popSound');
+const ticket = document.getElementById('ticket');
+
+button.addEventListener('click', () => {
+  audio.play();
+  createHearts();
+  ticket.classList.add('show');
+});
+
+function createHearts() {
+  const hearts = document.getElementById('hearts');
+  const colors = ['#ff4d4d', '#ff66cc', '#ffcc00', '#66ff66', '#66ccff', '#ffffff'];
+
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤️';
+    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.fontSize = `${1 + Math.random() * 2}rem`;
+    heart.style.animationDelay = Math.random() * 0.5 + 's';
+    heart.style.animationDuration = 2 + Math.random() * 2 + 's';
+
+    hearts.appendChild(heart);
+    setTimeout(() => heart.remove(), 4000);
+  }
+}
+
+  </script>
+</body>
+</html>

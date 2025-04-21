@@ -1,0 +1,175 @@
+:root {
+    --main-color: #fff878;
+    --secondary-color: #FFD700;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  body {
+    margin: 0;
+    background: linear-gradient(-45deg, #ec43ff, #a7fcac, #ad9bff, rgb(255, 0, 0));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: #333;
+    overflow-x: hidden;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, var(--main-color), transparent);
+    animation: rotate 20s linear infinite;
+    opacity: 0.1;
+  }
+  
+  @keyframes rotate {
+    100% { transform: rotate(360deg); }
+  }
+  
+  h1 {
+    font-size: 3.5rem;
+    color: var(--main-color);
+    margin: 1rem 0;
+    text-shadow: 2px 2px 0px white;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .emoji {
+    font-size: 4rem;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    animation: scale 2s infinite;
+  }
+  
+  @keyframes scale {
+    50% { transform: scale(1.1); }
+  }
+  
+  .message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    position: relative;
+    padding: 2rem;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 1rem;
+    margin: 2rem 0;
+    transition: transform 0.3s;
+  }
+  
+  .message:hover {
+    transform: rotate(-2deg) scale(1.02);
+  }
+  
+  .hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+  }
+  
+  .heart {
+    position: absolute;
+    animation: fly 3s linear forwards;
+  }
+  
+  @keyframes fly {
+    from {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+  
+  button {
+    background: var(--main-color);
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 1rem;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255,105,180,0.4);
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 1.5rem;
+      margin: 10px;
+    }
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  /* Popup тасалбар */
+  .ticket {
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: #fff6dc;
+    color: #333;
+    border: 2px dashed #ff9800;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    transition: all 0.4s ease;
+  }
+  
+  .ticket.show {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    pointer-events: auto;
+  }
+  
+  .button-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
