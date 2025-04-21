@@ -1,22 +1,10 @@
-# Node суулгана
-FROM node:16
+# Nginx серверийн image-ийг ашиглах
+FROM nginx:alpine
 
-# Ажлын хавтас үүсгэнэ
-WORKDIR /app
+# Төслийн файлуудыг хуулж өгөх
+COPY ./index.html /usr/share/nginx/html/index.html
+COPY ./main.css /usr/share/nginx/html/main.css
+COPY ./muba\ mp3.mp4 /usr/share/nginx/html/muba\ mp3.mp4
 
-# backend хавтаснаас package.json-ийг хуулна
-COPY backend/package*.json ./backend/
-
-# Хэрэглэгчийн сангуудыг суулгана
-WORKDIR /app/backend
-RUN npm install
-
-# backend хавтаснаас бүх файлыг хуулна
-COPY backend/ ./backend/
-
-# frontend хавтасны бүх файлуудыг хуулна
-COPY frontend/ ./frontend/
-
-# Серверийг эхлүүлэх
-WORKDIR /app/backend
-CMD ["node", "backend/server.js"]
+# 80 порт нээлттэй байлгах
+EXPOSE 80
