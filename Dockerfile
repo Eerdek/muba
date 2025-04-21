@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Төслийн файлуудыг хуулж өгөх
-COPY ./main.html /usr/share/nginx/html/main.html
+COPY ./index.html /usr/share/nginx/html/index.html
 COPY ./main.css /usr/share/nginx/html/main.css
 COPY ./muba_mp3.mp4 /usr/share/nginx/html/muba_mp3.mp4
 
