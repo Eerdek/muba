@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for muba on 2025-04-21T04:29:51Z
+# fly.toml app configuration file generated for muba-dwu2wg on 2025-04-21T04:33:26Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'muba'
+app = 'muba-dwu2wg'
 primary_region = 'arn'
 
 [build]
