@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for muba-3rjv-a on 2025-04-21T04:19:36Z
+# fly.toml app configuration file generated for muba on 2025-04-21T04:29:51Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'muba-3rjv-a'
-primary_region = 'nrt'
+app = 'muba'
+primary_region = 'arn'
 
 [build]
 
